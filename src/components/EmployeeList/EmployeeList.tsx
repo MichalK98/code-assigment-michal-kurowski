@@ -2,12 +2,19 @@ import { Employee } from '@Interfaces';
 import React from 'react';
 
 import { Box, Card, Flex, Grid, Image, Socials, Strong } from '../elements';
+import Button from '../Button';
 
 interface EmployeeListProps {
   employees: Employee[] | undefined | null;
+  onClick: () => void;
+  loadMore: boolean;
 }
 
-const EmployeeList: React.FC<EmployeeListProps> = ({ employees }) => {
+const EmployeeList: React.FC<EmployeeListProps> = ({
+  employees,
+  onClick,
+  loadMore
+}) => {
   return (
     <>
       <Grid>
@@ -52,6 +59,12 @@ const EmployeeList: React.FC<EmployeeListProps> = ({ employees }) => {
           </Card>
         ))}
       </Grid>
+
+      {loadMore && (
+        <Flex mt={40} mb={80}>
+          <Button onClick={onClick} label="More Emploee" />
+        </Flex>
+      )}
     </>
   );
 };
