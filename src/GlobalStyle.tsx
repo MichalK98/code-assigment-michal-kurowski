@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import * as theme from '@Components/theme';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -7,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         margin: 0;
         font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-        background-color: grey;
+        background-color: ${theme.colors.grey};
     }
 
     p {
@@ -15,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     a {
-        color: green;
+        color: ${theme.colors.green};
         text-decoration: none;
     }
 

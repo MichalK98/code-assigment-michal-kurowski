@@ -9,7 +9,7 @@ const EmployeeList: React.FC<EmployeeListProps> = ({ employees }) => {
   return (
     <>
       {employees?.map((employee: Employee, i: number) => (
-        <p>{employee.name}</p>
+        <p key={i}>{employee.name}</p>
       ))}
     </>
   );
