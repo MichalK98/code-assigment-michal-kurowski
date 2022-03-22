@@ -64,3 +64,41 @@ export const Socials = styled(Box)`
 export const Strong = styled.strong`
   color: ${theme.colors.blue};
 `;
+
+export const Table = styled.table`
+  max-width: 1140px;
+  width: 100%;
+  margin: auto;
+  padding: 10px;
+  background-color: ${theme.colors.white};
+  border-collapse: collapse;
+  border-bottom: 4px solid ${theme.colors.blue};
+`;
+
+export const THead = styled.thead`
+  text-align: left;
+  background-color: ${theme.colors.blue};
+  color: ${theme.colors.white};
+  border: none;
+`;
+
+export const TBody = styled.tbody`
+  background-color: ${theme.colors.white};
+
+  &:nth-child(even) {
+    background-color: ${theme.colors.grey};
+  }
+`;
+
+export const TR = styled.tr``;
+
+export const TH = styled.th`
+  border: 1px solid #ddd;
+  padding: 12px;
+`;
+
+export const TD = styled.td`
+  border: 1px solid #ddd;
+  padding: 12px;
+  border: none;
+`;

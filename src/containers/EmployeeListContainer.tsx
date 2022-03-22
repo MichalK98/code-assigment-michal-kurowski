@@ -12,6 +12,7 @@ interface StateProps {
   limit: number;
   count: number;
   loadMore: boolean;
+  grid: boolean;
 }
 
 const LIMIT = 16;
@@ -20,7 +21,8 @@ const defaultState: StateProps = {
   employees: null,
   limit: LIMIT,
   count: 0,
-  loadMore: true
+  loadMore: true,
+  grid: true
 };
 
 const EmployeeListContainer: React.FC<EmployeeListContainerProps> = ({
@@ -48,11 +50,20 @@ const EmployeeListContainer: React.FC<EmployeeListContainerProps> = ({
     });
   };
 
+  const handleChangeLayout = (selected: boolean) => {
+    setState({
+      ...state,
+      grid: selected
+    });
+  };
+
   return (
     <EmployeeList
       employees={listedEmployees}
       onClick={handleLoadMore}
       loadMore={state.loadMore}
+      grid={state.grid}
+      handleChangeLayout={handleChangeLayout}
     />
   );
 };
