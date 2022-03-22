@@ -1,9 +1,29 @@
-import type { NextPage } from 'next'
+import { GetStaticProps } from "next";
+import { getEmployees } from "@Api/employees";
 
-const Home: NextPage = () => {
-  return (
-    <h1>Home</h1>
-  )
+import { Employee } from "@Interfaces";
+import EmployeeListContainer from "src/containers/EmployeeListContainer";
+
+interface HomeProps {
+  employees: Employee[];
 }
 
-export default Home
+const Home: React.FC<HomeProps> = ({ employees }) => {
+  return <EmployeeListContainer employees={employees} />;
+};
+
+export default Home;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const employees: Employee[] = await getEmployees()
+    .then((res) => res.json())
+    .catch((err) => {
+      throw err;
+    });
+
+  return {
+    props: {
+      employees,
+    },
+  };
+};
