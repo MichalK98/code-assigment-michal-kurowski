@@ -19,7 +19,7 @@ const EmployeeTable: React.FC<EmployeeTableProps> = ({ employees }) => {
         </TR>
       </THead>
       {employees?.map((employee: Employee, i: number) => (
-        <TBody>
+        <TBody key={i}>
           <TR>
             <TD>{employee.name}</TD>
             <TD>{employee.office}</TD>

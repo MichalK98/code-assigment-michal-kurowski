@@ -14,7 +14,7 @@ const EmployeeGrid: React.FC<EmployeeGridProps> = ({ employees }) => {
       {employees?.map((employee: Employee, i: number) => (
         <Card key={i}>
           <Image
-            src={employee.imagePortraitUrl || ''}
+            src={employee.imagePortraitUrl || '/missing.png'}
             alt={employee.name || ''}
           />
           <Flex>

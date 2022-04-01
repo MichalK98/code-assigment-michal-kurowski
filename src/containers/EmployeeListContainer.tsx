@@ -13,6 +13,7 @@ interface StateProps {
   count: number;
   loadMore: boolean;
   grid: boolean;
+  officeAscending: boolean;
 }
 
 const LIMIT = 16;
@@ -22,7 +23,8 @@ const defaultState: StateProps = {
   limit: LIMIT,
   count: 0,
   loadMore: true,
-  grid: true
+  grid: true,
+  officeAscending: true,
 };
 
 const EmployeeListContainer: React.FC<EmployeeListContainerProps> = ({
@@ -57,13 +59,25 @@ const EmployeeListContainer: React.FC<EmployeeListContainerProps> = ({
     });
   };
 
+  const handleSortByOffice = (officeAscending: boolean) => {
+    const sorted = employees.sort((a, b) => (a.office > b.office) ? 1 : -1)
+
+    setState({
+      ...state,
+      officeAscending,
+      employees: officeAscending ? sorted : sorted.reverse()
+    });
+  };
+
   return (
     <EmployeeList
       employees={listedEmployees}
       onClick={handleLoadMore}
       loadMore={state.loadMore}
       grid={state.grid}
+      officeAscending={state.officeAscending}
       handleChangeLayout={handleChangeLayout}
+      handleSortByOffice={handleSortByOffice}
     />
   );
 };
