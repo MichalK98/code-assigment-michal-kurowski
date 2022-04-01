@@ -14,6 +14,7 @@ interface StateProps {
   loadMore: boolean;
   grid: boolean;
   officeAscending: boolean;
+  nameAscending: boolean;
 }
 
 const LIMIT = 16;
@@ -25,6 +26,7 @@ const defaultState: StateProps = {
   loadMore: true,
   grid: true,
   officeAscending: true,
+  nameAscending: true,
 };
 
 const EmployeeListContainer: React.FC<EmployeeListContainerProps> = ({
@@ -65,7 +67,17 @@ const EmployeeListContainer: React.FC<EmployeeListContainerProps> = ({
     setState({
       ...state,
       officeAscending,
-      employees: officeAscending ? sorted : sorted.reverse()
+      employees: officeAscending ? sorted.reverse() : sorted
+    });
+  };
+
+  const handleSortByName = (nameAscending: boolean) => {
+    const sorted = employees.sort((a, b) => (a.name > b.name) ? 1 : -1)
+
+    setState({
+      ...state,
+      nameAscending,
+      employees: nameAscending ? sorted.reverse() : sorted
     });
   };
 
@@ -76,8 +88,10 @@ const EmployeeListContainer: React.FC<EmployeeListContainerProps> = ({
       loadMore={state.loadMore}
       grid={state.grid}
       officeAscending={state.officeAscending}
+      nameAscending={state.nameAscending}
       handleChangeLayout={handleChangeLayout}
       handleSortByOffice={handleSortByOffice}
+      handleSortByName={handleSortByName}
     />
   );
 };

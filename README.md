@@ -13,6 +13,7 @@ $ npm run dev
 the application (css-grid, variables, clamp etc)
 - Use Typescript (or similar, no any’s!)
 - Enable switch between a grid and a different view (such as list)
+- Sort by name and office
 
 #### Other
 - API_KEY and other credentials should be in `.env`-file

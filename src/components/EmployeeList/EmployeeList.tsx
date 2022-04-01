@@ -14,9 +14,11 @@ interface EmployeeListProps {
   onClick: () => void;
   handleChangeLayout: (selected: boolean) => void;
   handleSortByOffice: (officeAscending: boolean) => void;
+  handleSortByName: (officeAscending: boolean) => void;
   loadMore: boolean;
   grid: boolean;
   officeAscending: boolean;
+  nameAscending: boolean;
 }
 
 const EmployeeList: React.FC<EmployeeListProps> = ({
@@ -24,9 +26,11 @@ const EmployeeList: React.FC<EmployeeListProps> = ({
   onClick,
   handleChangeLayout,
   handleSortByOffice,
+  handleSortByName,
   loadMore,
   grid,
-  officeAscending
+  officeAscending,
+  nameAscending,
 }) => {
   return (
     <>
@@ -37,6 +41,10 @@ const EmployeeList: React.FC<EmployeeListProps> = ({
       <Button
         onClick={() => handleSortByOffice(!officeAscending)}
         label={officeAscending ? 'Sort by Office A-Z' : 'Sort by Office Z-A'}
+      />
+      <Button
+        onClick={() => handleSortByName(!nameAscending)}
+        label={nameAscending ? 'Sort by Name A-Z' : 'Sort by Name Z-A'}
       />
       {grid ? (
         <EmployeeGrid employees={employees} />
