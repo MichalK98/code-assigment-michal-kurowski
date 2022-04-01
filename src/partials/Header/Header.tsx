@@ -6,7 +6,6 @@ const StyledHeader = styled.header`
   background-color: ${theme.colors.blue};
   display: flex;
   justify-content: center;
-  border-bottom: 4px solid ${theme.colors.green};
 `;
 
 const StyledNav = styled.nav``;

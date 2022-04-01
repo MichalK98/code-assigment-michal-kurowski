@@ -15,6 +15,16 @@ export const Box = styled.div<BoxProps>`
   margin-right: ${(props: BoxProps) => (props.mr ? `${props.mr}px` : 0)};
 `;
 
+export const Buttons = styled(Box)`
+  display: flex;
+  justify-content: center;
+  background-color: ${theme.colors.green};
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
 export const Card = styled.div`
   display: flex;
   flex-direction: column;
@@ -31,7 +41,6 @@ export const Flex = styled(Box)`
 export const Grid = styled.div`
   max-width: 1140px;
   margin: auto;
-  padding: 10px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
@@ -69,7 +78,6 @@ export const Table = styled.table`
   max-width: 1140px;
   width: 100%;
   margin: auto;
-  padding: 10px;
   background-color: ${theme.colors.white};
   border-collapse: collapse;
   border-bottom: 4px solid ${theme.colors.blue};

@@ -1,7 +1,7 @@
 import { Employee } from '@Interfaces';
 import React from 'react';
 
-import { Flex } from '../elements';
+import { Flex, Buttons } from '../elements';
 
 import EmployeeTable from '../EmployeeTable';
 import EmployeeGrid from '../EmployeeGrid';
@@ -30,22 +30,24 @@ const EmployeeList: React.FC<EmployeeListProps> = ({
   loadMore,
   grid,
   officeAscending,
-  nameAscending,
+  nameAscending
 }) => {
   return (
     <>
-      <Button
-        onClick={() => handleChangeLayout(!grid)}
-        label={grid ? 'Table View' : 'Grid View'}
-      />
-      <Button
-        onClick={() => handleSortByOffice(!officeAscending)}
-        label={officeAscending ? 'Sort by Office A-Z' : 'Sort by Office Z-A'}
-      />
-      <Button
-        onClick={() => handleSortByName(!nameAscending)}
-        label={nameAscending ? 'Sort by Name A-Z' : 'Sort by Name Z-A'}
-      />
+      <Buttons mb={20}>
+        <Button
+          onClick={() => handleChangeLayout(!grid)}
+          label={grid ? 'Table View' : 'Grid View'}
+        />
+        <Button
+          onClick={() => handleSortByOffice(!officeAscending)}
+          label={officeAscending ? 'Sort by Office A-Z' : 'Sort by Office Z-A'}
+        />
+        <Button
+          onClick={() => handleSortByName(!nameAscending)}
+          label={nameAscending ? 'Sort by Name A-Z' : 'Sort by Name Z-A'}
+        />
+      </Buttons>
       {grid ? (
         <EmployeeGrid employees={employees} />
       ) : (
